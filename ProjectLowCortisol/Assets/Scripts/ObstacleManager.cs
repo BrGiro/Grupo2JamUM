@@ -35,7 +35,7 @@ public class ObstacleManager : MonoBehaviour
     void SpawnObstacle()
     {
 
-        float y = Random.value > 0.5f ? laneTopY : laneBottomY; //elije el lane
+        float y = Random.Range(0f, 2f) > 1f ? laneTopY : laneBottomY; //elije el lane
 
         GameObject obj = Instantiate(obstaclePrefab, new Vector2(spawnX, y), Quaternion.identity);
         var obstacle = obj.GetComponent<Obstacle>();
