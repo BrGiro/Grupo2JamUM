@@ -1,8 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.UI;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Windows.Speech;
 
 public class personajePath3 : MonoBehaviour
 {
@@ -11,6 +13,24 @@ public class personajePath3 : MonoBehaviour
     public int pathNum = 0;     // Empieza en el carril de más abajo
     int maxPaths = 1;           // 1 carril es 0, 2 carriles es 1, etc.
     public float speed;
+    private Quaternion targetRotation;
+    [SerializeField] string goodEndingScene;
+    [SerializeField] string badEndingScene;
+ 
+    [SerializeField] UIManager uiManager;
+    [SerializeField] ScManager sceneManager;
+
+    [SerializeField] int scoreIncial;
+    [SerializeField] int currentScore;
+    [SerializeField] int currentChocadosObstacles;
+
+    //Referencias a VFX
+    [SerializeField] ParticleSystem VFX_Smoke;
+    [SerializeField] ParticleSystem VFX_Explotion;
+    [SerializeField] AudioSource SFX_Explotion;
+    [SerializeField] AudioSource SFX_Poof;
+    [SerializeField] ParticleSystem VFX_CursedText;
+    [SerializeField] ParticleSystem VFX_BoomText;
 
     // Necesitamos que las teclas estén en variables para invertirlas
     KeyCode Down;
@@ -22,11 +42,21 @@ public class personajePath3 : MonoBehaviour
 
         Down = KeyCode.S;
         Up = KeyCode.W;
+
+        currentScore = scoreIncial;
+
+        uiManager.SetScoreDisplay(scoreIncial.ToString());
+
+
+        targetRotation = transform.rotation;
     }
 
     void Update()
     {
         ControlProcess(Down, Up);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, 20 * Time.deltaTime);
+
     }
 
     void ControlProcess(KeyCode key1, KeyCode key2)
@@ -50,11 +80,14 @@ public class personajePath3 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)     // Nuestro hermoso detector de colisiones
     {
+        Debug.Log("Triggered");
         if (collision.CompareTag("Obstacle"))
         {
             Debug.Log("Triggered");
             collision.enabled = false;          // Esto permite que el jugador no se pueda volver a chocar con el mismo obstaculo cambiando constantemente de carril
-            StartCoroutine(CrashResult(1.5f));  // Subrutina para que el auto pierda velocidad momentaneamente al chocar
+            targetRotation = DoABarrelRoll();
+            AquiExplotanCosas();
+            //StartCoroutine(CrashResult(0.5f));  // Subrutina para que el auto pierda velocidad momentaneamente al chocar
             
             // Acá se invierten los controles
             KeyCode BackupKey = Up;
@@ -62,8 +95,75 @@ public class personajePath3 : MonoBehaviour
             Down = BackupKey;
 
         }
+        if (collision.CompareTag("Velocidad"))
+        {
+            rb.velocity *= 1.75f;
+        }
+        if (collision.CompareTag("Velocidad2"))
+        {
+            rb.velocity *= 2.25f;
+        }
+        if (collision.CompareTag("Meta"))
+        {
+            if (currentScore <= 0)
+            {
+                StartCoroutine(GameOver(true));
+            }
+            else
+            {
+                StartCoroutine(GameOver(false));
+            }
+        }
     }
+    public Vector2 GetCurrentVelocity()
+    {
+        return rb.velocity;
+    }
+    private Quaternion DoABarrelRoll()
+    {
+        Quaternion targetRotation = transform.rotation;
+        targetRotation *= Quaternion.Euler(0, 0, 180);
 
+        Debug.Log("hice un barrel roll");
+
+        return targetRotation;
+        
+    }
+    private void AquiExplotanCosas()
+    {
+        VFX_Smoke.Play();
+        VFX_Explotion.Play();
+        SFX_Explotion.Play();
+        SFX_Poof.Play();
+        VFX_BoomText.Play();
+        VFX_CursedText.Play();
+
+        currentScore -= 100;
+        currentChocadosObstacles++;
+        uiManager.SetScoreDisplay(currentScore.ToString());
+    }
+    IEnumerator GameOver(bool goodEnding)
+    {
+        Time.timeScale = 0f;
+        uiManager.SetGameOverPanel(true);
+        yield return new WaitForSecondsRealtime(1);
+        uiManager.SetObstaclesDisplay(currentChocadosObstacles.ToString());
+        yield return new WaitForSecondsRealtime(1);
+        uiManager.SetGameOverScoreDisplay(currentScore.ToString());        
+        yield return new WaitForSecondsRealtime(1);
+
+        if (!goodEnding) 
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sceneManager.LoadNewScene(badEndingScene);
+        }
+        else
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sceneManager.LoadNewScene(goodEndingScene);
+        }
+        StopAllCoroutines();
+    }
     IEnumerator CrashResult(float time)
     {
         rb.velocity = new Vector2(speed / 3, 0);

@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 28830cca384a4e843a088bc46dd09229
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: piedras_0
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 2981
+        width: 1629
+        height: 1384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 971567623c8f5e74890ff83db0eb9a12
+      internalID: -791380577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedras_1
+      rect:
+        serializedVersion: 2
+        x: 2031
+        y: 2780
+        width: 3052
+        height: 1403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec5245678a22eb34699cdbfa74dbe864
+      internalID: 1788800008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedras_2
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1661
+        width: 1957
+        height: 1237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 446da36ae05c3f94aba7a294acb8576d
+      internalID: 253200272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedras_3
+      rect:
+        serializedVersion: 2
+        x: 2470
+        y: 1768
+        width: 2079
+        height: 956
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11b607011060e694fa713466e5600144
+      internalID: -1326684041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: piedras_4
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 40
+        width: 2973
+        height: 1368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4644196e3e591443957af772cf5c3eb
+      internalID: 1948440802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      piedras_0: -791380577
+      piedras_1: 1788800008
+      piedras_10: 2027940458
+      piedras_100: -1990310428
+      piedras_101: 960983151
+      piedras_102: -1587066697
+      piedras_103: 492637937
+      piedras_104: -1554145744
+      piedras_105: -2087305510
+      piedras_106: 903873715
+      piedras_107: -1776983192
+      piedras_108: -1991999373
+      piedras_109: -955798545
+      piedras_11: 1381757579
+      piedras_110: -123303398
+      piedras_111: -872749246
+      piedras_112: -1164760807
+      piedras_113: 2036071672
+      piedras_114: -32972768
+      piedras_115: -1068014404
+      piedras_116: -509047448
+      piedras_117: 1231408779
+      piedras_118: -2001509536
+      piedras_119: 1259773943
+      piedras_12: 670545939
+      piedras_120: -1882170177
+      piedras_121: 569987518
+      piedras_122: -927128713
+      piedras_123: 879778496
+      piedras_13: 963429172
+      piedras_14: -1836303263
+      piedras_15: 612341710
+      piedras_16: -755258911
+      piedras_17: 350229621
+      piedras_18: 476270801
+      piedras_19: 377345437
+      piedras_2: 253200272
+      piedras_20: 1761092091
+      piedras_21: -576736087
+      piedras_22: 1606745262
+      piedras_23: -1351737906
+      piedras_24: 1129254945
+      piedras_25: 404293900
+      piedras_26: 828172503
+      piedras_27: 1010511549
+      piedras_28: 23890968
+      piedras_29: 405929889
+      piedras_3: -1326684041
+      piedras_30: -1918887311
+      piedras_31: -700445714
+      piedras_32: 1803166009
+      piedras_33: -65697783
+      piedras_34: -2054092239
+      piedras_35: 1869183737
+      piedras_36: 1476783011
+      piedras_37: 107817076
+      piedras_38: 965343695
+      piedras_39: -1201550035
+      piedras_4: 1948440802
+      piedras_40: 574628141
+      piedras_41: 1624842535
+      piedras_42: -1678443072
+      piedras_43: 1824676792
+      piedras_44: 2099876086
+      piedras_45: -613041558
+      piedras_46: -106183291
+      piedras_47: -1981462085
+      piedras_48: 1041588427
+      piedras_49: -768596347
+      piedras_5: -1850112910
+      piedras_50: 512880589
+      piedras_51: 2082048293
+      piedras_52: 1073444962
+      piedras_53: -544302379
+      piedras_54: 1505769719
+      piedras_55: 471309061
+      piedras_56: 985538542
+      piedras_57: 1649111883
+      piedras_58: 115804509
+      piedras_59: -1270251691
+      piedras_6: -2035368124
+      piedras_60: -1492704354
+      piedras_61: -475868940
+      piedras_62: -868578089
+      piedras_63: -503534215
+      piedras_64: -1674403388
+      piedras_65: -1517292954
+      piedras_66: 1312697596
+      piedras_67: 555278893
+      piedras_68: 1268876470
+      piedras_69: -1927280887
+      piedras_7: 122386763
+      piedras_70: 502281960
+      piedras_71: -1144641514
+      piedras_72: -1265150038
+      piedras_73: 543981534
+      piedras_74: 2032035020
+      piedras_75: -1424819424
+      piedras_76: -2003794567
+      piedras_77: -1741828146
+      piedras_78: 170140463
+      piedras_79: -802674578
+      piedras_8: -671208909
+      piedras_80: -1514778973
+      piedras_81: -273358570
+      piedras_82: 1839293852
+      piedras_83: -120271937
+      piedras_84: 663117499
+      piedras_85: 923038373
+      piedras_86: -1588480640
+      piedras_87: -2103967162
+      piedras_88: -565087518
+      piedras_89: -291958103
+      piedras_9: 469207433
+      piedras_90: 490002861
+      piedras_91: 1458909660
+      piedras_92: -1506015283
+      piedras_93: 334334006
+      piedras_94: 928084237
+      piedras_95: -1421945137
+      piedras_96: -240331610
+      piedras_97: -1574655532
+      piedras_98: -653964960
+      piedras_99: 1582635474
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

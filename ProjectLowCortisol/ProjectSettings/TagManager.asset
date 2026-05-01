@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Obstacle
+  - FxTemporaire
+  - Velocidad
+  - Meta
+  - Velocidad2
   layers:
   - Default
   - TransparentFX
