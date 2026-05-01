@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObstacleManager : MonoBehaviour
+public class VientitosManager : MonoBehaviour
 {
-    public float laneTopY = 1f;
-    public float laneBottomY = -1f;
+    public float laneTopY = 5f;
+    public float laneBottomY = -5f;
     public float spawnX = 0f;
     public float spawnXOffset = 100f;
     public float despawnX = -100f;
 
     public GameObject obstaclePrefab;
-    [SerializeField] Camera mainCamera;
     [SerializeField] personajePath3 player;
 
     public float spawnInterval = 1.5f;
@@ -39,11 +38,11 @@ public class ObstacleManager : MonoBehaviour
     void SpawnObstacle()
     {
 
-        float y = Random.Range(0f, 2f) > 1f ? laneTopY : laneBottomY; //elije el lane
+        float y = Random.Range(laneBottomY, laneTopY);
 
         GameObject obj = Instantiate(obstaclePrefab, new Vector2(spawnX, y), Quaternion.identity);
         //Debug.Log("SpawnPoint = " +  obj.transform.position);
-        var obstacle = obj.GetComponent<Obstacle>();
+        var obstacle = obj.GetComponent<Vientitos>();
         obstacle.speed = CalculateSpeed();
         obstacle.Init(despawnX);
     }

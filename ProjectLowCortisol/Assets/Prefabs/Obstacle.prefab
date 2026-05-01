@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 293415008700351992}
   - component: {fileID: 4957422756679212942}
-  - component: {fileID: 6526661445921388334}
   - component: {fileID: 8891944790312094049}
+  - component: {fileID: 6526661445921388334}
   m_Layer: 0
   m_Name: Obstacle
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6526661445921388334
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5938116975017161390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d264f0e3c92ae2b46b542e6c357066ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &8891944790312094049
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,3 +131,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6526661445921388334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938116975017161390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d264f0e3c92ae2b46b542e6c357066ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  sprites:
+  - {fileID: 1742535083, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: 1184631081, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: -644304406, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: -1026247377, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: 458878978, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: 354763576, guid: 70509c2b9a45f8e48a9146bf8a0b927a, type: 3}
+  - {fileID: -791380577, guid: 28830cca384a4e843a088bc46dd09229, type: 3}
+  - {fileID: 1788800008, guid: 28830cca384a4e843a088bc46dd09229, type: 3}
+  - {fileID: 253200272, guid: 28830cca384a4e843a088bc46dd09229, type: 3}
+  - {fileID: -1326684041, guid: 28830cca384a4e843a088bc46dd09229, type: 3}
+  - {fileID: 1948440802, guid: 28830cca384a4e843a088bc46dd09229, type: 3}

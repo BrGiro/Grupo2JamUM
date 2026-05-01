@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public class Vientitos : MonoBehaviour
 {
     public float speed = 5f;
     private float despawnX;
