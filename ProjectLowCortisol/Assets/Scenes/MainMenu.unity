@@ -269,7 +269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114756013344910078, guid: 8f4461d0e693b1347ad7f49902143528, type: 3}
       propertyPath: _sceneToLoadOnPlay
-      value: Level1
+      value: TutorialScene
       objectReference: {fileID: 0}
     - target: {fileID: 223812151079450064, guid: 8f4461d0e693b1347ad7f49902143528, type: 3}
       propertyPath: m_RenderMode
