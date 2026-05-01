@@ -16,9 +16,12 @@ public class personajePath3 : MonoBehaviour
     private Quaternion targetRotation;
     [SerializeField] string goodEndingScene;
     [SerializeField] string badEndingScene;
+    [SerializeField] Sprite damagedPlayer;
+    [SerializeField] Sprite normalPlayer;
  
     [SerializeField] UIManager uiManager;
     [SerializeField] ScManager sceneManager;
+    [SerializeField] MusicManager musicManager;
 
     [SerializeField] int scoreIncial;
     [SerializeField] int currentScore;
@@ -29,6 +32,7 @@ public class personajePath3 : MonoBehaviour
     [SerializeField] ParticleSystem VFX_Explotion;
     [SerializeField] AudioSource SFX_Explotion;
     [SerializeField] AudioSource SFX_Poof;
+    [SerializeField] AudioSource SFX_Moto;
     [SerializeField] ParticleSystem VFX_CursedText;
     [SerializeField] ParticleSystem VFX_BoomText;
 
@@ -39,9 +43,12 @@ public class personajePath3 : MonoBehaviour
     void Start()
     {
         rb.velocity = new Vector2(speed, 0);
+        musicManager = GameObject.FindGameObjectWithTag("MusicController").GetComponent<MusicManager>();
 
         Down = KeyCode.S;
         Up = KeyCode.W;
+        SFX_Moto = GetComponent<AudioSource>();
+        SFX_Moto.volume = musicManager.sfxVolumne;
 
         currentScore = scoreIncial;
 
@@ -65,6 +72,7 @@ public class personajePath3 : MonoBehaviour
         
         if (Input.GetKeyDown(key1) && pathNum > 0)
         {
+            Debug.Log("hey me fui pa abajo");
             float newpos = rb.position.y - 2f;
             rb.position = new Vector2(rb.position.x, newpos);
             pathNum--;
@@ -101,7 +109,7 @@ public class personajePath3 : MonoBehaviour
         }
         if (collision.CompareTag("Velocidad2"))
         {
-            rb.velocity *= 2.25f;
+            rb.velocity *= 2f;
         }
         if (collision.CompareTag("Meta"))
         {
@@ -134,12 +142,15 @@ public class personajePath3 : MonoBehaviour
         VFX_Smoke.Play();
         VFX_Explotion.Play();
         SFX_Explotion.Play();
+        SFX_Explotion.volume = musicManager.sfxVolumne;
         SFX_Poof.Play();
+        SFX_Poof.volume = musicManager.sfxVolumne;
         VFX_BoomText.Play();
         VFX_CursedText.Play();
 
         currentScore -= 100;
         currentChocadosObstacles++;
+        if (currentScore < 0 && normalPlayer != damagedPlayer) gameObject.GetComponent<SpriteRenderer>().sprite = damagedPlayer;
         uiManager.SetScoreDisplay(currentScore.ToString());
     }
     IEnumerator GameOver(bool goodEnding)
@@ -162,6 +173,7 @@ public class personajePath3 : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
             sceneManager.LoadNewScene(goodEndingScene);
         }
+        musicManager.StopMusicGame();
         StopAllCoroutines();
     }
     IEnumerator CrashResult(float time)

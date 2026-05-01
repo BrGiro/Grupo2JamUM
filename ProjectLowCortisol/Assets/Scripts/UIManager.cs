@@ -26,11 +26,12 @@ public class UIManager : MonoBehaviour
     }
     public void SetObstaclesDisplay(string newObstacles)
     {
-        gameOverObstacles.text += " " + newObstacles;
+        if (gameOverObstacles != null)
+            gameOverObstacles.text += newObstacles;
     }
     public void SetGameOverScoreDisplay(string newScore)
     {
-        gameOverScore.text += " " + newScore;
+        gameOverScore.text += newScore;
     }
     
 
