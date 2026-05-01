@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Velocidad
   - Meta
+  - Velocidad2
   layers:
   - Default
   - TransparentFX

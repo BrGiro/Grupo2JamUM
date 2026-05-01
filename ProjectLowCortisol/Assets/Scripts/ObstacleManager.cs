@@ -13,12 +13,14 @@ public class ObstacleManager : MonoBehaviour
     public GameObject obstaclePrefab;
     [SerializeField] Camera mainCamera;
     [SerializeField] personajePath3 player;
+    [SerializeField] UIManager uiManager;
 
     public float spawnInterval = 1.5f;
     public float minInterval = 0.5f;
     public float difficultyRate = 0.1f;
 
     private float timer;
+    private int obstacleCounter;
 
     void Start()
     {
@@ -46,11 +48,17 @@ public class ObstacleManager : MonoBehaviour
         var obstacle = obj.GetComponent<Obstacle>();
         obstacle.speed = CalculateSpeed();
         obstacle.Init(despawnX);
+        UpdateContador();
     }
 
     float CalculateSpeed()
     {
         return Mathf.Lerp(5f, 12f, 1f - (spawnInterval - 0.5f) / 1f);
+    }
+    void UpdateContador()
+    {
+        obstacleCounter++;
+        uiManager.SetContadorDisplay(obstacleCounter.ToString());
     }
 
     IEnumerator IncreaseDifficulty()

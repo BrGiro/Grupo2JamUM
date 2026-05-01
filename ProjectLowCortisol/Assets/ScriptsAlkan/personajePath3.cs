@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
@@ -93,8 +92,11 @@ public class personajePath3 : MonoBehaviour
         }
         if (collision.CompareTag("Velocidad"))
         {
-            rb.velocity *= 2;
-            Debug.Log("velocidad.... soy veloz");
+            rb.velocity *= 1.75f;
+        }
+        if (collision.CompareTag("Velocidad2"))
+        {
+            rb.velocity *= 2.25f;
         }
         if (collision.CompareTag("Meta"))
         {
