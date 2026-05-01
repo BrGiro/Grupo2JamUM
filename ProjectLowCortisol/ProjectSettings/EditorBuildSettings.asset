@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GoodEnding.unity
     guid: edc7f07ad9464d94596cc234d5bbac70
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: d3d7c895149f9c346ba3cd13868c2357
   m_configObjects: {}
