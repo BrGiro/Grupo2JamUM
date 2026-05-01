@@ -14,10 +14,15 @@ public class personajePath3 : MonoBehaviour
     int maxPaths = 1;           // 1 carril es 0, 2 carriles es 1, etc.
     public float speed;
     private Quaternion targetRotation;
+    [SerializeField] string goodEndingScene;
+    [SerializeField] string badEndingScene;
+ 
     [SerializeField] UIManager uiManager;
+    [SerializeField] ScManager sceneManager;
 
     [SerializeField] int scoreIncial;
-    [SerializeField] int currrentScore;
+    [SerializeField] int currentScore;
+    [SerializeField] int currentChocadosObstacles;
 
     //Referencias a VFX
     [SerializeField] ParticleSystem VFX_Smoke;
@@ -38,7 +43,7 @@ public class personajePath3 : MonoBehaviour
         Down = KeyCode.S;
         Up = KeyCode.W;
 
-        currrentScore = scoreIncial;
+        currentScore = scoreIncial;
 
         uiManager.SetScoreDisplay(scoreIncial.ToString());
 
@@ -100,7 +105,14 @@ public class personajePath3 : MonoBehaviour
         }
         if (collision.CompareTag("Meta"))
         {
-            SceneManager.LoadScene("BadEnding");
+            if (currentScore <= 0)
+            {
+                StartCoroutine(GameOver(true));
+            }
+            else
+            {
+                StartCoroutine(GameOver(false));
+            }
         }
     }
     public Vector2 GetCurrentVelocity()
@@ -126,8 +138,31 @@ public class personajePath3 : MonoBehaviour
         VFX_BoomText.Play();
         VFX_CursedText.Play();
 
-        currrentScore -= 100;
-        uiManager.SetScoreDisplay(currrentScore.ToString());
+        currentScore -= 100;
+        currentChocadosObstacles++;
+        uiManager.SetScoreDisplay(currentScore.ToString());
+    }
+    IEnumerator GameOver(bool goodEnding)
+    {
+        Time.timeScale = 0f;
+        uiManager.SetGameOverPanel(true);
+        yield return new WaitForSecondsRealtime(1);
+        uiManager.SetObstaclesDisplay(currentChocadosObstacles.ToString());
+        yield return new WaitForSecondsRealtime(1);
+        uiManager.SetGameOverScoreDisplay(currentScore.ToString());        
+        yield return new WaitForSecondsRealtime(1);
+
+        if (!goodEnding) 
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sceneManager.LoadNewScene(badEndingScene);
+        }
+        else
+        {
+            yield return new WaitForSecondsRealtime(1);
+            sceneManager.LoadNewScene(goodEndingScene);
+        }
+        StopAllCoroutines();
     }
     IEnumerator CrashResult(float time)
     {
