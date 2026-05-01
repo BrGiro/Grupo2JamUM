@@ -9,6 +9,7 @@ TagManager:
   - Velocidad
   - Meta
   - Velocidad2
+  - MusicController
   layers:
   - Default
   - TransparentFX
