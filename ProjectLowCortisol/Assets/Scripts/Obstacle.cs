@@ -27,8 +27,8 @@ public class Obstacle : MonoBehaviour
     {
 
         transform.Translate(Vector2.left * speed * Time.deltaTime);
-        if (transform.position.x < despawnX)
-            Destroy(gameObject);
+        //if (transform.position.x < despawnX)
+            //Destroy(gameObject);
     }
     void FitSprite(SpriteRenderer sr)
     {

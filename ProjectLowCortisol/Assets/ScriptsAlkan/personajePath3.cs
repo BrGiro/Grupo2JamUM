@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows.Speech;
 
 public class personajePath3 : MonoBehaviour
@@ -14,6 +15,10 @@ public class personajePath3 : MonoBehaviour
     int maxPaths = 1;           // 1 carril es 0, 2 carriles es 1, etc.
     public float speed;
     private Quaternion targetRotation;
+    [SerializeField] UIManager uiManager;
+
+    [SerializeField] int scoreIncial;
+    [SerializeField] int currrentScore;
 
     //Referencias a VFX
     [SerializeField] ParticleSystem VFX_Smoke;
@@ -22,6 +27,7 @@ public class personajePath3 : MonoBehaviour
     [SerializeField] AudioSource SFX_Poof;
     [SerializeField] ParticleSystem VFX_CursedText;
     [SerializeField] ParticleSystem VFX_BoomText;
+
     // Necesitamos que las teclas estén en variables para invertirlas
     KeyCode Down;
     KeyCode Up;
@@ -32,6 +38,11 @@ public class personajePath3 : MonoBehaviour
 
         Down = KeyCode.S;
         Up = KeyCode.W;
+
+        currrentScore = scoreIncial;
+
+        uiManager.SetScoreDisplay(scoreIncial.ToString());
+
 
         targetRotation = transform.rotation;
     }
@@ -72,7 +83,7 @@ public class personajePath3 : MonoBehaviour
             collision.enabled = false;          // Esto permite que el jugador no se pueda volver a chocar con el mismo obstaculo cambiando constantemente de carril
             targetRotation = DoABarrelRoll();
             AquiExplotanCosas();
-            StartCoroutine(CrashResult(1.5f));  // Subrutina para que el auto pierda velocidad momentaneamente al chocar
+            //StartCoroutine(CrashResult(0.5f));  // Subrutina para que el auto pierda velocidad momentaneamente al chocar
             
             // Acá se invierten los controles
             KeyCode BackupKey = Up;
@@ -84,6 +95,10 @@ public class personajePath3 : MonoBehaviour
         {
             rb.velocity *= 2;
             Debug.Log("velocidad.... soy veloz");
+        }
+        if (collision.CompareTag("Meta"))
+        {
+            SceneManager.LoadScene("BadEnding");
         }
     }
     public Vector2 GetCurrentVelocity()
@@ -108,6 +123,9 @@ public class personajePath3 : MonoBehaviour
         SFX_Poof.Play();
         VFX_BoomText.Play();
         VFX_CursedText.Play();
+
+        currrentScore -= 100;
+        uiManager.SetScoreDisplay(currrentScore.ToString());
     }
     IEnumerator CrashResult(float time)
     {
